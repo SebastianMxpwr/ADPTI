@@ -1,0 +1,15 @@
+<div class="container">
+    <form #loginform="ngForm" (ngSubmit)="login_Component(loginform)" class="form">
+        <div class="form-container">
+            <h1>Bienvenido</h1>
+            <label for="email">Email</label>
+            <input type="text" name="email" [(ngModel)]="user.email" required>
+            <label for="password">Contraseña</label>
+            <input type="password" name="contrasena" [(ngModel)]="user.contrasena" required >
+            <button type="submit" id="login-button">Login</button>
+        </div>
+    </form>
+    <div class="ilustration">
+        <img src="../../../assets/img/Work at home.png" alt="Login_Work">
+    </div>
+</div>

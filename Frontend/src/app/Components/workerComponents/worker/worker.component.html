@@ -1,0 +1,34 @@
+<app-navbar-worker></app-navbar-worker>
+
+<div class="containerS">
+    <input type="text" class="searchbar" [(ngModel)]="search">
+    <button id="login-buttonS" (click)="searchBookC()">Buscar</button>
+    <button id="login-buttonS">Limpiar</button>
+</div>
+
+<div class="vacio" *ngIf="libros.length == 0; else main_content">
+    <h1>No hay libros por ahora, Argega alguno</h1>
+</div>
+
+
+<ng-template #main_content>
+    <div class="container">
+        <div class="card" *ngFor="let libro of libros">
+            <div class="card-title" [ngStyle]="{'color': libro.blnActivo == false || libro.existencias == 0 ? 'red': 'black'}">
+                <p>Nombre: {{libro.nombreLibro}}</p>
+            </div>
+            <div class="card-desription">
+                <p><strong>Descripcion:</strong><i> {{libro.descripcion}}</i></p>
+                <p><strong>Existencias:</strong><i> {{libro.existencias}}</i></p>
+                <p><strong>Precio:</strong><i> ${{libro.precio}}</i></p>
+            </div>
+            <div class="card-img">
+                <img [src]="'http://localhost:3000/' +  libro.imagePath">
+            </div>
+            <div class="buttons">
+                <button (click)="venderBookC(libro._id)">Vender <i class="fa-solid fa-user-pen"></i></button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+

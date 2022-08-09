@@ -1,0 +1,26 @@
+<app-navbar-admin></app-navbar-admin>
+
+
+<div class="container">
+    <form #loginform="ngForm" (ngSubmit)="actualizarBook(loginform)" class="form">
+        <div class="form-container">
+            <h1>Edicion de libro</h1> 
+            <div class="input-data">
+                <label>Nombre</label>
+                <input type="text" name="nombre"  [(ngModel)]="libro.nombreLibro">
+            </div>
+            <div class="input-data">
+                <label>Descripcion</label>
+                <input type="text" name="email"  [(ngModel)]="libro.descripcion">
+            </div>
+            <div class="input-data">
+                <label>Existencias</label>
+                <input type="text" name="edad" [(ngModel)]="libro.existencias">
+            </div>
+            <button type="submit" id="login-button">Editar</button>
+        </div>
+        
+       
+    </form>
+</div>
+

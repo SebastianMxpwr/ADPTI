@@ -1,0 +1,31 @@
+<app-navbar-worker></app-navbar-worker>
+<div class="container">
+    <form #taskform="ngForm" (ngSubmit)="book_Component(nombreLibro, descripcion, existencias, precio)" class="form">
+       <div class="form-container">
+            <h1>Agregar Libro</h1>  
+            <div class="input-data">
+                <label>Nombre</label>
+                <input type="text" #nombreLibro required>
+            </div>
+            <div class="input-data">
+                <label>Descripcion</label>
+                <input type="text" #descripcion required>
+            </div>
+            <div class="input-data">
+                <label>Precio</label>
+                <input type="text" #precio required>
+            </div>
+            <div class="input-data">
+                <label>Existencias</label>
+                <input type="number" #existencias required>
+            </div>
+            <div class="input-data">
+                <label>Descripcion</label>
+                <input type="file" class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+                <img [src]="photoSelected || 'assets/img/no_photo.png'" class="img-fluid" alt="No image"
+                    (click)="photoInput.click()">
+            </div>
+            <button type="submit" id="login-button">Crear</button>
+       </div>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+<app-navbar-admin></app-navbar-admin>
+
+<div class="vacio" *ngIf="libros.length == 0; else main_content">
+    <h1>No hay libros por ahora</h1>
+</div>
+
+
+<ng-template #main_content>
+    <div class="container">
+        <div class="card" *ngFor="let libro of libros">
+            <div class="card-title" [ngStyle]="{'color': libro.blnActivo == false || libro.existencias == 0 ? 'red': 'black'}">
+                <p>Nombre: {{libro.nombreLibro}}</p>
+            </div>
+            <div class="card-desription">
+                <p><strong>Descripcion:</strong><i> {{libro.descripcion}}</i></p>
+                <p><strong>Existencias:</strong><i> {{libro.existencias}}</i></p>
+            </div>
+            <div class="card-img">
+                <img [src]="'http://localhost:3000/' +  libro.imagePath">
+            </div>
+            <div class="buttons">
+                <button (click)="editBookC(libro._id)">Editar <i class="fa-solid fa-user-pen"></i></button>
+                <button (click)="deleteBookC(libro._id)">Vender <i class="fa-solid fa-eraser"></i></button>
+                <button (click)="deleteBookC(libro._id)">Borrar <i class="fa-solid fa-eraser"></i></button>
+            </div>
+        </div>
+    </div>
+</ng-template>

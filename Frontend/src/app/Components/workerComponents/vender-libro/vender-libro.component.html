@@ -1,0 +1,41 @@
+<app-navbar-worker></app-navbar-worker>
+
+<div class="container">
+    <form #loginform="ngForm" (ngSubmit)="venderBook(loginform)" class="form">
+        <div class="form-container">
+            <h1>Venta de libro</h1> 
+            <div class="input-data">
+                <label>Nombre</label>
+                <input type="text" name="nombre"  [(ngModel)]="libro.nombreLibro" disabled>
+            </div>
+            <div class="input-data">
+                <label>Descripcion</label>
+                <input type="text" name="descripcion"  [(ngModel)]="libro.descripcion" disabled>
+            </div>
+            <div class="input-data">
+                <label>Existencias</label>
+                <input type="text" name="Existencias" [(ngModel)]="libro.existencias" disabled>
+            </div>
+            <div class="input-data">
+                <label>Precio</label>
+                <input type="text" name="precio"  [(ngModel)]="libro.precio" disabled>
+            </div>
+            <div class="input-data">
+                <label>Pago</label>
+                <select name="tipoUsuario" id="selectType">
+                    <option selected>Tarjeta</option>
+                    <option>Efectivo</option>
+                </select>
+            </div>
+            <div class="input-data">
+                <img [src]="'http://localhost:3000/' +  libro.imagePath">
+            </div>
+            <div class="buttons">
+                <button type="submit" id="login-button">Vender</button>
+                <button id="login-button" (click)="cancelar()">Cancelar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
